@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "8f19a931-e7d0-48c8-8252-1aa862ae9160",
+		"name": "E-commerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37925933"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"password123\",\r\n  \"role\": \"buyer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"superadmin@example.com\",\r\n  \"password\": \"SuperAdminPassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product 1\",\r\n  \"description\": \"Description of Product 1\",\r\n  \"category\": \"Category 1\",\r\n  \"old_price\": 100.00,\r\n  \"new_price\": 80.00,\r\n  \"start_date\": \"2025-02-17\",\r\n  \"expiry_date\": \"2025-02-24\",\r\n  \"delivery_amount\": 5.00,\r\n  \"free_delivery\": false,\r\n  \"image_url\": \"http://example.com/image.jpg\",\r\n  \"vendor_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Staff Product 1\",\r\n  \"description\": \"Description of Staff Product 1\",\r\n  \"category\": \"Category 1\",\r\n  \"old_price\": 100.00,\r\n  \"new_price\": 80.00,\r\n  \"start_date\": \"2025-02-17\",\r\n  \"expiry_date\": \"2025-02-24\",\r\n  \"delivery_amount\": 5.00,\r\n  \"free_delivery\": false,\r\n  \"image_url\": \"http://example.com/image.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/staff/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"staff",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/staff/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"staff",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Vendor Product 1\",\r\n  \"description\": \"Description of Vendor Product 1\",\r\n  \"category\": \"Category 1\",\r\n  \"old_price\": 100.00,\r\n  \"new_price\": 80.00,\r\n  \"start_date\": \"2025-02-17\",\r\n  \"expiry_date\": \"2025-02-24\",\r\n  \"delivery_amount\": 5.00,\r\n  \"free_delivery\": false,\r\n  \"image_url\": \"http://example.com/image.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/vendor/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"vendor",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/vendor/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"vendor",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "View Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODA2MDA3LCJleHAiOjE3Mzk4MDk2MDd9.J3I1Cj3BX99FHonpFH5Sqk7qeAw5L51kwUnSjOnFFko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user/products/search?query=Product&page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Product"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
